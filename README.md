@@ -1,6 +1,7 @@
 # Wanderlust Airbnb
 
-Welcome to **Wanderlust Airbnb**! This is a project designed to simulate an Airbnb-like platform, showcasing listings for travelers and hosts. This project allows users to explore properties, leave reviews, and manage their accounts with secure authentication and authorization.
+Welcome to **Wanderlust Airbnb** ! This is a project designed to simulate an Airbnb-like platform, showcasing listings for travelers and hosts. This project allows users to explore properties, leave reviews, and manage their accounts with secure authentication and authorization.
+
 ---
 
 ## Features
