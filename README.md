@@ -1,6 +1,6 @@
 # Wanderlust Airbnb
 
-Welcome to **Wanderlust Airbnb** ! This is a project designed to simulate an Airbnb-like platform, showcasing listings for travelers and hosts. This project allows users to explore properties, leave reviews, and manage their accounts with secure authentication and authorization.
+Welcome to **Wanderlust Airbnb**! This is a project designed to simulate an Airbnb-like platform, showcasing listings for travelers and hosts. This project allows users to explore properties, leave reviews, and manage their accounts with secure authentication and authorization.
 
 ---
 
@@ -10,7 +10,7 @@ Welcome to **Wanderlust Airbnb** ! This is a project designed to simulate an Air
 - **User Authentication**:  
   - Secure registration and login.  
   - Password hashing for security.  
-  - Session-based or token-based authentication.
+  - Session-based authentication.
 
 - **Authorization**:  
   - Role-based access control (Admin, User).  
@@ -77,7 +77,7 @@ Ensure you have the following installed:
 ## Technologies Used
 
 ### Frontend
-- **React.js**: For building the user interface
+- **EJS (Embedded JavaScript)**: For rendering dynamic HTML templates
 - **CSS**: For styling
 
 ### Backend
@@ -86,9 +86,9 @@ Ensure you have the following installed:
 - **MongoDB**: NoSQL database for storing user and property data
 
 ### Other Tools
-- **JWT**: For authentication and secure user sessions
+- **npm password**: For secure password hashing and authentication
+- **Express-Session**: For session management
 - **Mongoose**: MongoDB object modeling for Node.js
-- **Bcrypt**: For password hashing
 - **Git/GitHub**: For version control
 
 ---
