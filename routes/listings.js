@@ -13,11 +13,18 @@ router.route("/")
 .get(wrapAsync(listingController.index))
 .post(isLoggedIn, upload.single("listing[image]"), validateListing, wrapAsync(listingController.createListing));
 
+
+//Search
+router.get("/search", wrapAsync(listingController.search));
+
+//Search Icon
+router.get("/search/:id", wrapAsync(listingController.searchIcon));
+
 // New Route
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
 router.route("/:id")
-.get(wrapAsync(listingController.showListing))
+.get(isLoggedIn, wrapAsync(listingController.showListing))
 .put(isLoggedIn,isOwner, upload.single("listing[image]"), validateListing, wrapAsync(listingController.updateListing))
 .delete(isLoggedIn, isOwner, wrapAsync(listingController.destroyListing));
 

@@ -1,5 +1,9 @@
 <% layout("/layouts/boilerplate") -%>
-
+<style>
+    #login a{
+        text-decoration: none;
+    }
+</style>
 <div class="row mt-3">
     <div class="col-6 offset-2">
         <h2>SignUp on Wanderlust</h2>
@@ -18,6 +22,7 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name = "password" class="form-control" id="password" required>
             </div>
+            <p id="login">Already have an account? <a href="/login">Login</a></p>
             <button class="btn btn-success">SignUp</button>
         </form>
     </div>

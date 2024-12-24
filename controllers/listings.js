@@ -2,8 +2,23 @@ const Listing = require("../models/listing");
 
 module.exports.index = async(req, res) =>{
     const allListings = await Listing.find({});
-    res.render("./listings/index.ejs", {allListings});
+    const dest = "none"
+    res.render("./listings/index.ejs", {allListings, dest});
 };  
+
+// search
+module.exports.search = async(req,res) =>{
+    const {dest} = req.query;
+    const allListings = await Listing.find({});
+    res.render("./listings/index.ejs", {allListings, dest});
+}
+
+// search icons
+module.exports.searchIcon = async(req,res) =>{
+    const dest = req.params.id;
+    const allListings = await Listing.find({});
+    res.render("./listings/index.ejs", {allListings, dest});
+}
 
 module.exports.renderNewForm = (req, res) =>{
     res.render("./listings/new.ejs");

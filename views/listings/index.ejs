@@ -16,6 +16,10 @@
             margin-right: 2rem;
             margin-top: 2rem;
             opacity: 0.7;
+            color: black;
+        }
+        #filters a{
+            text-decoration: none;
         }
         .filter:hover{
             opacity: 1;
@@ -41,50 +45,72 @@
     </style>
 
     <div id="filters">
-        <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></div>
-            <p>Iconic Cities</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain"></i></div>
-            <p>Mountains</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Castles</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></div>
-            <p>Amazing Pools</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-campground"></i></div>
-            <p>Camping</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-tractor"></i></div>
-            <p>Farms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-regular fa-snowflake"></i></div>
-            <p>Arctic</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-igloo"></i></i></div>
-            <p>Domes</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-ship"></i></div>
-            <p>Boats</p>
-        </div>
+        <a href="/listings/search/trending" >
+            <div class="filter">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+            </div>
+        </a>
+        <a href="/listings/search/rooms" >
+            <div class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </div>
+        </a>
+        <a href="/listings/search/iconic" >
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+            </div>
+        </a>
+        <a href="/listings/search/mountains" >
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p>Mountains</p>
+            </div>
+        </a>
+        <a href="/listings/search/castles" >
+            <div class="filter">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castles</p>
+            </div>
+        </a>
+        <a href="/listings/search/pools" >
+            <div class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Amazing Pools</p>
+            </div>
+        </a>
+        <a href="/listings/search/camping" >
+            <div class="filter">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <p>Camping</p>
+            </div>
+        </a>
+        <a href="/listings/search/farms" >
+            <div class="filter">
+                <div><i class="fa-solid fa-tractor"></i></div>
+                <p>Farms</p>
+            </div>
+        </a>
+        <a href="/listings/search/arctic">
+            <div class="filter">
+                <div><i class="fa-regular fa-snowflake"></i></div>
+                <p>Arctic</p>
+            </div>
+        </a>
+        <a href="/listings/search/domes" >
+            <div class="filter">
+                <div><i class="fa-solid fa-igloo"></i></i></div>
+                <p>Domes</p>
+            </div>
+        </a>
+        <a href="/listings/search/boats" >
+            <div class="filter">
+                <div><i class="fa-solid fa-ship"></i></div>
+                <p>Boats</p>
+            </div>
+        </a>
         <div class="tax-togle">
             <div class="form-check-reverse form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
@@ -95,20 +121,40 @@
 
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
         <% for(let list of allListings) { %>
-            <a href="/listings/<%=list._id%>" class = "listing-link">
-                <div class="card listing-card">
-                    <img src="<%= list.image.url %>" class="card-img-top" style="height: 20rem;" alt="listing-image">
-                    <div class="card-img-overlay"></div>
-                    <div class="card-body">
-                    <p class="card-text">
-                        <b><%= list.title %></b> <br>
-                        &#8377; <%=list.price.toLocaleString("en-IN")%> / night 
-                        <i class="tax-info"> &nbsp; +18% GST</i> <br>
-                        <%= list.location %> , <%= list.country %>
-                    </p>
+            <% let loc = list.location.toUpperCase(); %>
+            <% let cont = list.country.toUpperCase(); %>
+            <% let destUpper = dest.toUpperCase(); %>
+            <% if(dest == "none"){ %>
+                <a href="/listings/<%=list._id%>" class = "listing-link">
+                    <div class="card listing-card">
+                        <img src="<%= list.image.url %>" class="card-img-top" style="height: 20rem;" alt="listing-image">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                        <p class="card-text">
+                            <b><%= list.title %></b> <br>
+                            &#8377; <%=list.price.toLocaleString("en-IN")%> / night 
+                            <i class="tax-info"> &nbsp; +18% GST</i> <br>
+                            <%= list.location %> , <%= list.country %>
+                        </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>  
+            <% } else if(loc.includes(destUpper) || cont.includes(destUpper) || dest == list.category){ %>
+                <a href="/listings/<%=list._id%>" class = "listing-link">
+                    <div class="card listing-card">
+                        <img src="<%= list.image.url %>" class="card-img-top" style="height: 20rem;" alt="listing-image">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                        <p class="card-text">
+                            <b><%= list.title %></b> <br>
+                            &#8377; <%=list.price.toLocaleString("en-IN")%> / night 
+                            <i class="tax-info"> &nbsp; +18% GST</i> <br>
+                            <%= list.location %> , <%= list.country %>
+                        </p>
+                        </div>
+                    </div>
+                </a>  
+            <% } %>
         <% } %>
     </div>
 </body>
