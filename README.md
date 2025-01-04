@@ -45,8 +45,8 @@ Ensure you have the following installed:
 1. **Clone the repository**  
    Open your terminal and run:
    ```bash
-   git clone https://github.com/Umesh-Verma07/Wanderlust-Airbnb.git
-   cd Wanderlust-Airbnb
+   git clone https://github.com/Umesh-Verma07/Wanderlust.git
+   cd Wanderlust
    ```
 
 2. **Install dependencies**  
